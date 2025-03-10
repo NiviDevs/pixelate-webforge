@@ -120,6 +120,7 @@ font-family: "Montserrat", sans-serif;
     justify-content: center;
     gap: 1.5rem;
     width: auto;
+    height: 50vh;
 }
 
 .tech-images {
@@ -128,6 +129,7 @@ font-family: "Montserrat", sans-serif;
     flex-direction: column;
     align-items: center;
     max-width: 400px;
+    max-height: 50vh;
     overflow: hidden; /* Ensures no scroll issues */
     border-radius: 10px;
 }
@@ -138,7 +140,7 @@ font-family: "Montserrat", sans-serif;
     object-fit: cover;
     border-radius: 10px;
     position: relative;
-    z-index: 2; /* Keeps the image on top */
+    z-index: -1; /* Keeps the image on top */
     transition: transform 0.4s ease-in-out;
 }
 
@@ -150,9 +152,10 @@ font-family: "Montserrat", sans-serif;
     height: 100%; /* Ensure it covers the same height as the image */
     background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent overlay */
     border-radius: 10px;
-    padding: 10px; 
-    text-align: start;
+    padding: 0px; 
+    text-align: center;
     color: whitesmoke;
+    flex-wrap: nowrap;
     display: flex;
     align-items: center;
     justify-content: right;
@@ -161,14 +164,32 @@ font-family: "Montserrat", sans-serif;
     z-index: 1; /* Keeps the description behind the image */
 }
 .tech-desc h3{
-    padding-top: 15px;
+    padding-top: 100px;
+    font-size: 6vmin;
+}
+.tech-desc p{
+        font-size: 2.5vmin;
 }
 .tech-images:hover .tech-desc {
     bottom: 0; /* Moves up under the image */
 }
 
-.tech-images:hover img {
-    transform: translateY(-100%); /* Moves image up, revealing the text */
+@media (max-width: 768px) {
+    .tech-gallery {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center them */
+        gap: 1rem; /* Reduce gap for better spacing */
+    }
+
+    .tech-images {
+        width: 90%; /* Adjust width so images fit nicely */
+        max-width: 400px; /* Prevent images from being too large */
+    }
+
+    .tech-images img {
+        width: 100%; /* Make sure images are responsive */
+        height: auto; /* Adjust height dynamically */
+    }
 }
 
 .footer{
@@ -204,7 +225,7 @@ font-family: "Montserrat", sans-serif;
     display: flex;
     flex-direction: column;
     align-items:flex-end;
-text-align: right;
+    text-align: right;
 }
 
 .personal p,h3,h2 {
